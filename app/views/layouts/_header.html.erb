@@ -1,0 +1,16 @@
+<%= nav_bar fixed: :top, brand: "AMURATECH", responsive: true, brand_link: root_path, class: 'navbar-inverse' do %>
+    <% if current_user %>
+            <%= menu_group do %>
+                <%= menu_item "Projects", projects_path %>
+                <%= menu_item "Users", app_users_path %>
+                <%= menu_divider %>
+            <% end %>
+            <%= menu_group pull: :right do %>
+                <%= menu_item "Log Out", destroy_user_session_path, method: :DELETE  %>
+            <% end %>
+    <% else %>
+            <%= menu_group pull: :right do %>
+                <%= menu_item "Log In", new_user_session_path %>
+             <% end %>
+    <% end %>
+<% end %>

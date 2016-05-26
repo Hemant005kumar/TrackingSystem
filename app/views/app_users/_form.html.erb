@@ -1,0 +1,45 @@
+<%= form_for :user, url: app_users_path, :html => { :class => 'form-horizontal' } do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+        <ul>
+          <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+    </div>
+  <% end %>
+
+  
+  <div class="form-group">
+        <%= f.label :name, :class => 'control-label' %>
+        <div class="controls">
+            <%= f.text_field :user_name, :class => 'form-control' %>
+        </div>
+  </div>
+
+  <div class="form-group">
+        <%= f.label :email, :class => 'control-label' %>
+        <div class="controls">
+             <%= f.text_field :email, :class => 'form-control' %>
+        </div>
+  </div>
+
+  <div class="form-group">
+        <%= f.label :Role, :class => 'control-label' %>
+        <div class="controls">
+            <%= f.select :role, options_for_select(["Select One", "admin", "sales", "analyst"],:disabled => ["Select One"]), :class => 'genForm_dropBox' %>
+        </div>
+  </div>
+
+ <div class="form-group">
+        <%= f.label :password, :class => 'control-label' %>
+        <div class="controls">
+            <%= f.text_field :password, :class => 'form-control' %>
+        </div>
+  </div>
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            app_users_path, :class => 'btn btn-default' %>
+ 
+<% end %>

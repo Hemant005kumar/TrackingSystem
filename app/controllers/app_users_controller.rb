@@ -1,8 +1,13 @@
-class UsersController < ApplicationController
+class AppUsersController < ApplicationController
+    #load_and_authorize_resource
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
+  #load_and_authorize_resource through: :user
+
+# comments_controller.rb possibility
+#load_and_authorize_resource :nested => :user
   def index
     @users = User.all
   end
@@ -28,7 +33,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to app_user_path(@user), notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -42,7 +47,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to app_user_path(@user), notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -55,8 +60,8 @@ class UsersController < ApplicationController
   # DELETE /users/1.json
   def destroy
     @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+     respond_to do |format|
+      format.html { redirect_to app_users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -65,10 +70,10 @@ class UsersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
-    end
+   end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:user_name, :user_email)
+      params.require(:user).permit(:user_name, :email, :password,:role)
     end
 end

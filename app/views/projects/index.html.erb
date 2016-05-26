@@ -16,7 +16,8 @@
       <tr>
         <td><%= link_to project.id, project_path(project) %></td>
         <td><%= project.project_name %></td>
-        <td><%= project.user.user_name%></td>
+
+        <td><%= project.user.user_name if project.user.present?%></td>   
         <td>
           <%= link_to t('.show', :default => t("helpers.links.show")),
                       project_path(project), :class => 'btn btn-default btn-xs' %>

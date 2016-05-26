@@ -1,0 +1,63 @@
+# set the your permission hash
+# <role_name>:
+#   <controller_name>:
+#     <action_name>: true
+
+# role_name_1:
+#   users:
+#     index: true
+#     show: true
+#     new: true
+#     create: true
+#     edit: true
+#     update: true
+#     destory: true
+#     print: true
+
+# role_name_2:
+#   roles:
+#     index: true
+#     show: true
+#     new: true
+#     create: true
+#     edit: true
+#     update: true
+#     destory: true
+
+
+# role_name_3:
+#   messages:
+#     index: true
+#     show: true
+#     new: true
+#     create: true
+#     edit: true
+#     update: true
+#     destory: true
+#     print: true
+
+admin:
+  administrator: true
+
+analyst: 
+  app_users:
+    index: true
+    show: true
+    new: true
+    create: true
+    edit: true
+    update: true
+    destory: true
+
+  projects:
+    index: true
+    show: true
+    new: true
+    create: true
+    edit: true
+    update: true
+
+sales:
+  app_users:
+    index: true
+    show: false
