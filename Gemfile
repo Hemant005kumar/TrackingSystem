@@ -27,6 +27,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git', branch: 'bootstrap3'
 gem 'group_permission', git: 'https://github.com/sanket-redkar/group_permisson.git'
+gem 'byebug'
 
 
 # Use ActiveModel has_secure_password

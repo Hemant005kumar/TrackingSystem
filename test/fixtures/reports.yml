@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  incoming: 1
+  purely_untouched: 1
+  touched_attempt: 1
+  prospect: 1
+  opportunity: 1
+  nfa: 1
+  nfa_prospect: 1
+  nfa_opp: 1
+  talk_time: 1
+  total_call: 1
+  out_ans: 1
+  in_ans: 1
+
+two:
+  incoming: 1
+  purely_untouched: 1
+  touched_attempt: 1
+  prospect: 1
+  opportunity: 1
+  nfa: 1
+  nfa_prospect: 1
+  nfa_opp: 1
+  talk_time: 1
+  total_call: 1
+  out_ans: 1
+  in_ans: 1

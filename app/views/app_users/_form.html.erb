@@ -1,5 +1,6 @@
-<%= form_for :user, url: app_users_path, :html => { :class => 'form-horizontal' } do |f| %>
-  <% if @user.errors.any? %>
+<%=form_for(@user, url: @action) do |f| %>
+
+ <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
         <ul>
@@ -28,16 +29,17 @@
   <div class="form-group">
         <%= f.label :Role, :class => 'control-label' %>
         <div class="controls">
-            <%= f.select :role, options_for_select(["Select One", "admin", "sales", "analyst"],:disabled => ["Select One"]), :class => 'genForm_dropBox' %>
+            <%= f.select :role_name, options_for_select(["Select One", "admin", "sales", "analyst"],:disabled => ["Select One"]), :class => 'genForm_dropBox' %>
         </div>
   </div>
-
+ <% if @action == app_users_path %>
  <div class="form-group">
         <%= f.label :password, :class => 'control-label' %>
         <div class="controls">
             <%= f.text_field :password, :class => 'form-control' %>
         </div>
   </div>
+  <%end%>
   <%= f.submit nil, :class => 'btn btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
             app_users_path, :class => 'btn btn-default' %>

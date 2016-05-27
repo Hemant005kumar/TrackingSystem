@@ -1,0 +1,37 @@
+
+<%- model_class = Report -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  
+    <tr>
+      <th><%= model_class.human_attribute_name(:incoming) %></th>
+      <th><%= model_class.human_attribute_name(:purely_untouched) %></th>
+      <th><%= model_class.human_attribute_name(:touch_attemp) %></th>
+      <th><%= model_class.human_attribute_name(:prospect) %></th>
+      <th><%= model_class.human_attribute_name(:opportunity) %></th>
+      <th><%= model_class.human_attribute_name(:nfa) %></th>
+      <th><%= model_class.human_attribute_name(:nfa_prospect)%></th>
+      <th><%= model_class.human_attribute_name(:nfa_opp) %></th>
+      <th><%= model_class.human_attribute_name(:talk_time) %></th>
+      <th><%= model_class.human_attribute_name(:total_call) %></th>
+      <th><%= model_class.human_attribute_name(:out_ans) %></th>
+      <th><%= model_class.human_attribute_name(:in_ans) %></th>
+    </tr>
+	</tr>
+  
+ 	 <tbody>
+    <% @reports.each do |report| %>
+      <tr>
+        <td><%= link_to report.id%></td>
+        <td><%= report.user_name %></td>
+        <td><%= report.email %></td>
+        <td><%= report.role_name%></td>
+        <td><%=l report.created_at %></td>
+       </tr>
+    <% end %>
+  </tbody>
+</table>
+
+

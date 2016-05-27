@@ -9,7 +9,7 @@ class AppUsersController < ApplicationController
 # comments_controller.rb possibility
 #load_and_authorize_resource :nested => :user
   def index
-    @users = User.all
+    @users = User.send(current_user.role_name)
   end
 
   # GET /users/1
@@ -20,16 +20,19 @@ class AppUsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
+    @action = app_users_path
   end
 
   # GET /users/1/edit
   def edit
+    @action = app_user_path(@user)
   end
 
   # POST /users
   # POST /users.json
   def create
     @user = User.new(user_params)
+    #debugger
 
     respond_to do |format|
       if @user.save
@@ -74,6 +77,6 @@ class AppUsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:user_name, :email, :password,:role)
+      params.require(:user).permit(:user_name, :email, :password,:role_name)
     end
 end

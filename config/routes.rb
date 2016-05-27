@@ -1,5 +1,9 @@
+
 Rails.application.routes.draw do
+  get 'reports/index'
+
   root 'welcomes#index'
+
 
   resources :app_users
   devise_for :users

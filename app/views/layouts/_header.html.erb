@@ -1,8 +1,10 @@
 <%= nav_bar fixed: :top, brand: "AMURATECH", responsive: true, brand_link: root_path, class: 'navbar-inverse' do %>
     <% if current_user %>
             <%= menu_group do %>
-                <%= menu_item "Projects", projects_path %>
-                <%= menu_item "Users", app_users_path %>
+                <%= menu_item "PROJECTS", projects_path %>
+                <%= menu_item "USERS", app_users_path %>
+                <%= menu_item "REPORTS",reports_index_path %>
+
                 <%= menu_divider %>
             <% end %>
             <%= menu_group pull: :right do %>
